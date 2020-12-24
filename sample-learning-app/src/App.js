@@ -1,6 +1,13 @@
 import "./App.css";
 import React, { Component } from "react";
 import Person from "./Person/Person";
+import Reservation from "./Reservation/Reservation";
+import Calculator from "./Calculator/Calculator";
+import { MyButton } from "./MyButton/MyButton";
+//import MaterialUiButton from './components/MaterialUiButton/MaterialUiButton'
+import Button from "@material-ui/core/Button";
+import TextField from "@material-ui/core/TextField";
+import MyTypography from "./components/MyTypography/MyTypography";
 
 class App extends Component {
   state = {
@@ -103,11 +110,28 @@ class App extends Component {
 
     return (
       <div className="App">
+        <Reservation />
+        <Calculator />
         <h1> Hello Avengers </h1>
         <button onClick={this.changeDisplay} style={style}>
           View/Hide Avengers
         </button>{" "}
         {avengers}
+        <MyButton />
+        <Button variant="contained" color="primary">
+          Primary
+        </Button>
+        <form noValidate>
+          <TextField
+            label="Next appointment"
+            type="datetime-local"
+            defaultValue="2020-12-22T10:30"
+            InputLabelProps={{
+              shrink: true,
+            }}
+          />
+        </form>
+        <MyTypography>h4 text</MyTypography>
       </div>
     );
   }

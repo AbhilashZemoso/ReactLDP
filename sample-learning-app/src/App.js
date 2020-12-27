@@ -8,6 +8,12 @@ import { MyButton } from "./MyButton/MyButton";
 import Button from "@material-ui/core/Button";
 import TextField from "@material-ui/core/TextField";
 import MyTypography from "./components/MyTypography/MyTypography";
+import ClassNames from "./components/StyledButton/StyledButton";
+import OtherStyledButton from "./components/StyledButton/OtherStyledButton";
+import { ThemeProvider } from "@material-ui/core/styles";
+import theme from "./theme";
+import SampleApp from "./SampleApp/App";
+
 
 class App extends Component {
   state = {
@@ -109,29 +115,40 @@ class App extends Component {
     }
 
     return (
-      <div className="App">
-        <Reservation />
-        <Calculator />
-        <h1> Hello Avengers </h1>
-        <button onClick={this.changeDisplay} style={style}>
-          View/Hide Avengers
-        </button>{" "}
-        {avengers}
-        <MyButton />
-        <Button variant="contained" color="primary">
-          Primary
-        </Button>
-        <form noValidate>
-          <TextField
-            label="Next appointment"
-            type="datetime-local"
-            defaultValue="2020-12-22T10:30"
-            InputLabelProps={{
-              shrink: true,
-            }}
-          />
-        </form>
-        <MyTypography>h4 text</MyTypography>
+      <div>
+        <div name="learning">
+          <ThemeProvider theme={theme}>
+            <div className="App">
+              <Reservation />
+              <Calculator />
+              <h1> Hello Avengers </h1>
+              <button onClick={this.changeDisplay} style={style}>
+                View/Hide Avengers
+              </button>{" "}
+              {avengers}
+              <MyButton />
+              <Button variant="contained" color="primary">
+                Primary
+              </Button>
+              <form noValidate>
+                <TextField
+                  label="Next appointment"
+                  type="datetime-local"
+                  defaultValue="2020-12-22T10:30"
+                  InputLabelProps={{
+                    shrink: true,
+                  }}
+                />
+              </form>
+              <MyTypography>h4 text</MyTypography>
+              <ClassNames>New</ClassNames>
+              <OtherStyledButton>Other styling</OtherStyledButton>
+            </div>
+          </ThemeProvider>
+        </div>
+        <div name="implementing">
+                <SampleApp />
+        </div>
       </div>
     );
   }

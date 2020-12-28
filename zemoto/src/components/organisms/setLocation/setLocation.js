@@ -11,6 +11,7 @@ const useStyles = makeStyles({
     backgroundColor: "white",
     padding: "20px",
     borderRadius: "10px",
+    minWidth:"1200px",
   },
   icon:{
     fontSize:"25px",
@@ -29,6 +30,7 @@ const useStyles = makeStyles({
   searchIcon: {
     opacity: ".4",
     fontSize: "30px",
+    color: "black",
   }
 });
 

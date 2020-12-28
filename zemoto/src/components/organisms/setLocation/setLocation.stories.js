@@ -13,6 +13,4 @@ const Template = ({...args})=>(
 
 
 export const Primary = Template.bind({});
-Primary.args = {
-    primary: true,
-}
+

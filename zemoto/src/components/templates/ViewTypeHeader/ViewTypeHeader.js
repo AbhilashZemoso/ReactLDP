@@ -4,6 +4,7 @@ import { Grid } from "@material-ui/core";
 import Typography from "../../atoms/Typography/Typography";
 import SetLocation from "../../organisms/setLocation/setLocation";
 import logo from "../../../resources/images/logoBlack.webp";
+import { Link } from "react-router-dom";
 
 const useStyles = makeStyles({
   root: {
@@ -25,7 +26,9 @@ const ViewTypeHeader = () => {
     <Grid container direction="column" className={classes.root} spacing={6}>
       <Grid item container direction="row" alignItems="center" spacing={4}>
         <Grid item>
+        <Link to="/" style={{ textDecoration: 'none' }}>
           <img className={classes.logo} src={logo} />
+          </Link>
         </Grid>
         <Grid item sm>
           <SetLocation shadowBorder />

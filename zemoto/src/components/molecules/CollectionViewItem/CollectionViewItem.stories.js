@@ -1,6 +1,6 @@
 import React from "react";
 import CollectionViewItem from "./CollectionViewItem";
-import collection1 from "./../../../resources/images/collection1.jpg";
+import collection1 from "./../../../resources/images/collection2.jpg";
 
 
 export default {
@@ -10,9 +10,17 @@ export default {
 
 const Template = ({ ...args }) => <CollectionViewItem {...args} />;
 
-export const Primary = Template.bind({});
-Primary.args = {
+export const Medium = Template.bind({});
+Medium.args = {
   special: "What's Special",
   placesCount: 12,
   foodImg : collection1,
+};
+
+export const Small = Template.bind({});
+Small.args = {
+  special: "What's Special",
+  placesCount: 12,
+  foodImg : collection1,
+  mode: "small",
 };

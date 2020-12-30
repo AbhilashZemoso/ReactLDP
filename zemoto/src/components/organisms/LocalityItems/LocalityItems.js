@@ -2,10 +2,11 @@ import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import { Grid } from "@material-ui/core";
 import LocalityViewItem from "../../molecules/LocalityViewItem/LocalityViewItem";
+import { Link } from "react-router-dom";
 
 const useStyles = makeStyles({
   root: {
-      padding: "40px",
+    padding: "40px",
   },
 });
 
@@ -17,7 +18,9 @@ const LocalityItems = () => {
       {viewType.map((value, index) => {
         return (
           <Grid item sm={4} xs={12}>
-            <LocalityViewItem {...value} id={index}></LocalityViewItem>
+            <Link to="/viewType/delivery" style={{ textDecoration: "none" }}>
+              <LocalityViewItem {...value} id={index}></LocalityViewItem>
+            </Link>
           </Grid>
         );
       })}
@@ -69,7 +72,8 @@ const viewType = [
   {
     placesCount: 48,
     placeName: "Necklace Road",
-  },{
+  },
+  {
     placesCount: 363,
     placeName: "Jubilee Hills",
   },

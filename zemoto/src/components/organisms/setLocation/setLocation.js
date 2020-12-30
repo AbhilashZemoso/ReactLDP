@@ -1,5 +1,4 @@
 import React from "react";
-//import Autocomplete from "@material-ui/lab/Autocomplete";
 import RoomRoundedIcon from "@material-ui/icons/LocationOn";
 import TextField from "../../atoms/TextField/TextField";
 import { makeStyles } from "@material-ui/core/styles";

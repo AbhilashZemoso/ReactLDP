@@ -4,8 +4,6 @@ import { makeStyles } from "@material-ui/core/styles";
 
 
 const useStyles = makeStyles({
-  root: {
-  },
   link : {
     cursor : "pointer",
   },
@@ -14,7 +12,7 @@ const useStyles = makeStyles({
 const TypographyComponent = (props) => {
   const classes = useStyles();
 
-  const classList = [classes.root];
+  const classList = [];
 
   if(props.mode==='link'){
     classList.push(classes.link);

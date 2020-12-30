@@ -2,114 +2,50 @@ import React, { useState } from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import { Grid } from "@material-ui/core";
 import Restaurant from "../../molecules/Restaurant/Restaurant";
-import Typography from "../../atoms/Typography/Typography";
 import collection1 from "./../../../resources/images/collection1.jpg";
 import collection2 from "./../../../resources/images/collection2.jpg";
 import collection3 from "./../../../resources/images/collection3.jpg";
 import collection4 from "./../../../resources/images/collection4.jpg";
 import collection5 from "./../../../resources/images/collection5.jpg";
-import collection6 from "./../../../resources/images/collection6.jpg";
-import Collections from "../../templates/Collections/Collections";
+
 
 const useStyles = makeStyles({
-  root: {
-    padding: "0 40px",
-  },
   item: {
     margin: "20px 0",
   },
-  subHeading: {
-    color: "rgb(100,100,100,.9)",
-    cursor: "pointer",
-  },
-  active: {
-    color: "rgb(240,0,0,.7)",
-    borderBottom: "3px solid rgb(240,0,0,.5)",
-  },
-  subHeadingBar: {
-    padding: "0 0 60px 36px",
-  },
   restaurantItems: {
-    padding: "40px 0",
+    padding: "40px",
   },
-  greyBackground: {
-    //backgroundColor: "rgb(200,200,200,.2)",
-  }
 });
-
-const viewTypeList = [
-  {
-    name: "Delivery",
-    heading :"Delivery",
-  },
-  {
-    name: "Dining Out",
-    heading: "Dine-Out",
-  },
-  {
-    name: "Nightlife",
-    heading: "Nightlife",
-  },
-];
 
 const RestaurantItems = (props) => {
   const classes = useStyles();
 
   const restaurants = restaurantsList;
 
-  const [activeType,setActiveType] = useState(0);
-
   return (
-    <Grid container direction="column" className={classes.root}>
-      <Grid
-        item
-        direction="row"
-        container
-        spacing={8}
-        className={classes.subHeadingBar}
-      >
-        {viewTypeList.map((viewTypeItem,index) => {
-          let classList = classes.subHeading;
-          if (index===activeType) {
-            classList += " " + classes.active;
-          }
-          return (
-            <Grid item className={classList} onClick={()=>setActiveType(index)}>
-              <Typography variant="h5">{viewTypeItem.name}</Typography>
-            </Grid>
-          );
-        })}
-      </Grid>
-      { activeType>0 &&
-        <Grid item className={classes.greyBackground}>
-            <Collections />
-      </Grid>}
-      <Grid item>
-        <Typography variant="h4">{viewTypeList[activeType].heading} Restaurants in Hyderabad</Typography>
-      </Grid>
-      <Grid
-        container
-        direction="row"
-        alignItems="stretch"
-        justify="space-between"
-        spacing={2}
-        className={classes.restaurantItems}
-      >
-        {restaurants.map((value, index) => {
-          return (
-            <Grid item id={index} sm={4} xs={12} className={classes.item}>
-              <Restaurant {...value} id={index}></Restaurant>
-            </Grid>
-          );
-        })}
-      </Grid>
+    <Grid
+      container
+      direction="row"
+      alignItems="stretch"
+      justify="space-between"
+      spacing={2}
+      className={classes.restaurantItems}
+    >
+      {restaurants.map((value, index) => {
+        return (
+          <Grid item id={index} sm={4} xs={12} className={classes.item}>
+            <Restaurant {...value} id={index}></Restaurant>
+          </Grid>
+        );
+      })}
     </Grid>
   );
 };
 
 const restaurantsList = [
   {
-    image: collection1,
+    image: collection2,
     name: "Sr Balaki Famili Dhaba",
     rating: 3.8,
     reviews: "15.2K",
@@ -120,7 +56,7 @@ const restaurantsList = [
     flat: 150,
   },
   {
-    image: collection2,
+    image: collection1,
     name: "Hotel Shadab",
     rating: 4.4,
     reviews: "10K",
@@ -164,7 +100,7 @@ const restaurantsList = [
     flat: 150,
   },
   {
-    image: collection6,
+    image: collection2,
     name: "Baba Bakery",
     rating: 4.4,
     reviews: "25.4K",
@@ -230,7 +166,7 @@ const restaurantsList = [
     flat: 150,
   },
   {
-    image: collection6,
+    image: collection2,
     name: "McDonald's",
     rating: 4.1,
     reviews: "25.4K",

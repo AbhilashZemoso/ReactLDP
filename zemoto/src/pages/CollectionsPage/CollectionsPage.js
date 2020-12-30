@@ -2,9 +2,10 @@ import React from "react";
 import { Grid } from "@material-ui/core";
 import ViewTypeHeader from "../../components/templates/ViewTypeHeader/ViewTypeHeader";
 import RestaurantItems from "../../components/organisms/RestaurantItems/RestaurantItems";
-import ViewTypeHeadings from "../../components/organisms/ViewTypeHeadings/ViewTypeHeadings";
+import MainCollection from "../../components/templates/MainCollection/MainCollection";
+import MoreCollectionView from "../../components/templates/MoreCollectionsView/MoreCollectionView";
 
-const ViewTypePage = (props) => {
+const CollectionsPage = (props) => {
 
   return (
     <Grid container direction="column">
@@ -12,13 +13,16 @@ const ViewTypePage = (props) => {
         <ViewTypeHeader />
       </Grid>
       <Grid item>
-        <ViewTypeHeadings {...props}/>
+        <MainCollection {...props}/>
       </Grid>
       <Grid item>
-        <RestaurantItems />
+          <RestaurantItems />
+      </Grid>
+      <Grid item>
+        <MoreCollectionView />
       </Grid>
     </Grid>
   );
 };
 
-export default ViewTypePage;
+export default CollectionsPage;

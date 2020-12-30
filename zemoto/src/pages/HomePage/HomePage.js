@@ -5,12 +5,8 @@ import HomeView from "../../components/templates/HomeView/HomeView";
 import Collections from "../../components/templates/Collections/Collections";
 import Localities from "../../components/templates/Localities/Localities";
 
-const useStyles = makeStyles({
-  root: {},
-});
 
 const HomePage = () => {
-  const classes = useStyles();
 
   return (
     <Grid container direction="column">

@@ -1,5 +1,4 @@
 import React from "react";
-import { makeStyles } from "@material-ui/core/styles";
 import { Grid } from "@material-ui/core";
 import CollectionViewItem from "../../molecules/CollectionViewItem/CollectionViewItem";
 import collection1 from "./../../../resources/images/collection1.jpg";
@@ -7,48 +6,27 @@ import collection2 from "./../../../resources/images/collection2.jpg";
 import collection3 from "./../../../resources/images/collection3.jpg";
 import collection4 from "./../../../resources/images/collection4.jpg";
 import collection5 from "./../../../resources/images/collection5.jpg";
-import collection6 from "./../../../resources/images/collection6.jpg";
 import { Link } from "react-router-dom";
 
 
-const useStyles = makeStyles({
-  root: {
-    padding: "40px 20px 40px 0",
-  },
-});
-
-const CollectionItems = () => {
-  const classes = useStyles();
-
-  const photoCollection = [
-    collection1,
-    collection2,
-    collection3,
-    collection4,
-    collection5,
-    collection6,
-  ];
+const MoreCollectionItems = () => {
 
   return (
-    <Grid container alignItems="center" className={classes.root} spacing={2}>
-      {viewType.map((value, index) => {
+    <Grid container spacing={2}>
+      {moreCollections.map((value, index) => {
         return (
           <Grid item sm={3} xs={12}>
             <Link
               to={{
                 pathname: "/collections",
                 state: {
-                  foodImg: photoCollection[index],
-                  ...value
-                }
+                  foodImg: value.photo,
+                  ...value,
+                },
               }}
               style={{ textDecoration: "none" }}
             >
-              <CollectionViewItem
-                {...value}
-                foodImg={photoCollection[index]}
-                id={index}
-              />
+              <CollectionViewItem {...value} id={index} mode="small" />
             </Link>
           </Grid>
         );
@@ -57,23 +35,67 @@ const CollectionItems = () => {
   );
 };
 
-const viewType = [
+const moreCollections = [
   {
     placesCount: 12,
     special: "New Year's Specials",
+    foodImg: collection1,
   },
   {
     placesCount: 31,
     special: "Trending This Week",
+    foodImg: collection2,
   },
   {
     placesCount: 111,
     special: "Hyderabad's Hottest",
+    foodImg: collection3,
   },
   {
     placesCount: 221,
     special: "Work Friendly Places!",
+    foodImg: collection4,
+  },
+  {
+    placesCount: 12,
+    special: "Live Sports Screenings",
+    foodImg: collection5,
+  },
+  {
+    placesCount: 6,
+    special: "Newly Opened",
+    foodImg: collection2,
+  },
+  {
+    placesCount: 12,
+    special: "Great Breakfasts",
+    foodImg: collection4,
+  },
+  {
+    placesCount: 8,
+    special: "Happy Hours",
+    foodImg: collection1,
+  },
+  {
+    placesCount: 8,
+    special: "Best Milkshakes",
+    foodImg: collection3,
+  },
+  {
+    placesCount: 221,
+    special: "Work Friendly Places!",
+    foodImg: collection4,
+  },
+  {
+    placesCount: 12,
+    special: "Live Sports Screenings",
+    foodImg: collection5,
+  },
+  {
+    placesCount: 6,
+    special: "Newly Opened",
+    foodImg: collection2,
   },
 ];
 
-export default CollectionItems;
+export default MoreCollectionItems;

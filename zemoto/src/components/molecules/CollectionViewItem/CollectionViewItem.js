@@ -11,7 +11,7 @@ const useStyles = makeStyles({
     borderRadius: "15px",
     maxWidth: "500px",
     height: "500px",
-    backgroundImage: `linear-gradient(rgba(200,200,200, 0.1), rgb(100, 100, 100, .8)), url(${foodImg})`,
+    //backgroundImage: `linear-gradient(rgba(200,200,200, 0.1), rgb(100, 100, 100, .8)), url(${foodImg})`,
     backgroundSize: "cover",
     backgroundPosition: "center",
     color: "white",
@@ -30,7 +30,7 @@ const CollectionViewItem = (props) => {
   const classes = useStyles();
 
   return (
-    <Grid container alignItems="flex-end" className={classes.root}>
+    <Grid container alignItems="flex-end" className={classes.root} style={{ backgroundImage: `linear-gradient(rgba(200,200,200, 0.1), rgb(100, 100, 100, .8)), url(${props.foodImg})` }}>
       <Grid item className={classes.content}>
         <Typography {...props} variant="h6">
           {props.special}

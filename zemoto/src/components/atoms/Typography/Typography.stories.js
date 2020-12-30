@@ -31,7 +31,8 @@ LogInOrOut.args = {
 export const AppLink = Template.bind({});
 AppLink.args = {
   children: "Get the App",
-  variant: "subtitle2"
+  variant: "subtitle2",
+  mode: "link",
 }
 
 export const ViewContent = Template.bind({});

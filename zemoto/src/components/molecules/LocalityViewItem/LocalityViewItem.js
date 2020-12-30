@@ -14,6 +14,10 @@ const useStyles = makeStyles({
     boxShadow: "0 1.5px 2px rgb(100, 100, 100, 0.2)",
     color: "rgb(0,0,0,.8)",
     height: "100px",
+    transition: "transform .2s",
+    "&:hover": {
+      boxShadow: "1px 2px 6px rgb(100, 100, 100, 0.2)",
+    },
   },
   arrowIcon: {
     fontSize: "20px",

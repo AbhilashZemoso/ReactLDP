@@ -13,6 +13,7 @@ import OtherStyledButton from "./components/StyledButton/OtherStyledButton";
 import { ThemeProvider } from "@material-ui/core/styles";
 import theme from "./theme";
 import SampleApp from "./SampleApp/App";
+import LearnFilter from "./LearnFilter/LearnFilter";
 
 
 class App extends Component {
@@ -149,6 +150,7 @@ class App extends Component {
         <div name="implementing">
                 <SampleApp />
         </div>
+        <LearnFilter />
       </div>
     );
   }

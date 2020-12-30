@@ -19,12 +19,12 @@ const useStyles = makeStyles({
   logo: {
     width: "400px",
   },
-  topPart:{
+  topPart: {
     padding: "40px 80px 0 80px",
   },
-  pointer:{
+  pointer: {
     cursor: "pointer",
-  }
+  },
 });
 
 const HomeView = () => {
@@ -35,13 +35,19 @@ const HomeView = () => {
       <Grid item container direction="column" className={classes.root}>
         <Grid item container spacing={7} className={classes.topPart}>
           <Grid item sm>
-            <Typography  variant="subtitle2">Get the App</Typography>
+            <Typography mode="link" variant="subtitle2">
+              Get the App
+            </Typography>
           </Grid>
           <Grid item>
-            <Typography  variant="h6">Login</Typography>
+            <Typography mode="link" variant="h6">
+              Login
+            </Typography>
           </Grid>
           <Grid item>
-            <Typography  variant="h6">Signup</Typography>
+            <Typography mode="link" variant="h6">
+              Signup
+            </Typography>
           </Grid>
         </Grid>
         <Grid item sm={2}></Grid>
@@ -72,7 +78,7 @@ const HomeView = () => {
               <Typography variant="h5">Hyderabad</Typography>
             </Grid>
           </Grid>
-          <Grid item>
+          <Grid item sm={12}>
             <SetLocation />
           </Grid>
         </Grid>

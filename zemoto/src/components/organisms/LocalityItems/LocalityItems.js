@@ -14,11 +14,11 @@ const LocalityItems = () => {
   const classes = useStyles();
 
   return (
-    <Grid container alignItems="center" className={classes.root} spacing={2}>
+    <Grid container className={classes.root} spacing={2}>
       {viewType.map((value, index) => {
         return (
-          <Grid item sm={4} xs={12}>
-            <Link to="/viewType/delivery" style={{ textDecoration: "none" }}>
+          <Grid item md={4} sm={6} xs={12}>
+            <Link to="/viewType/delivery" style={{ textDecoration: "inherit" }}>
               <LocalityViewItem {...value} id={index}></LocalityViewItem>
             </Link>
           </Grid>

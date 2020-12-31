@@ -14,9 +14,9 @@ const useStyles = makeStyles({
   logo: {
     width: "200px",
   },
-  faded:{
-      color: "rgb(100,100,100,.4)",
-  }
+  faded: {
+    color: "rgb(100,100,100,.4)",
+  },
 });
 
 const ViewTypeHeader = () => {
@@ -26,28 +26,31 @@ const ViewTypeHeader = () => {
     <Grid container direction="column" className={classes.root} spacing={6}>
       <Grid item container direction="row" alignItems="center" spacing={4}>
         <Grid item>
-        <Link to="/" style={{ textDecoration: 'none' }}>
-          <img className={classes.logo} src={logo} />
+          <Link to="/" style={{ textDecoration: "none" }}>
+            <img className={classes.logo} src={logo} />
           </Link>
         </Grid>
-        <Grid item sm>
+        <Grid item lg>
           <SetLocation shadowBorder />
         </Grid>
-        <Grid item>
-          <Typography mode="link" variant="h6">
-            Login
-          </Typography>
-        </Grid>
-        <Grid item>
-          <Typography mode="link" variant="h6">
-            Signup
-          </Typography>
+        <Grid item lg={2} justify="flex-end" container spacing={2}>
+          <Grid item>
+            <Typography mode="link" variant="h6">
+              Login
+            </Typography>
+          </Grid>
+          <Grid item>
+            <Typography mode="link" variant="h6">
+              Signup
+            </Typography>
+          </Grid>
         </Grid>
       </Grid>
       <Grid item>
-          <Typography variant="subtitle2">
-          Home / India / Hyderabad / Hyderabad City / <span className={classes.faded}>Charminar Restaurants</span>
-          </Typography>
+        <Typography variant="subtitle2">
+          Home / India / Hyderabad / Hyderabad City /{" "}
+          <span className={classes.faded}>Charminar Restaurants</span>
+        </Typography>
       </Grid>
     </Grid>
   );

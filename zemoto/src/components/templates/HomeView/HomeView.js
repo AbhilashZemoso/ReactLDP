@@ -11,13 +11,14 @@ const useStyles = makeStyles({
   root: {
     backgroundImage: `linear-gradient(rgba(0,0,0, 0.5), rgb(0, 0, 0, .5)), url(${bgPhoto})`,
     height: "700px",
-    width: "100%",
+    //width: "100%",
     backgroundSize: "cover",
     backgroundPosition: "center",
     color: "white",
   },
   logo: {
-    width: "400px",
+    width: "25vw",
+    minWidth: "250px",
   },
   topPart: {
     padding: "40px 80px 0 80px",
@@ -25,6 +26,10 @@ const useStyles = makeStyles({
   pointer: {
     cursor: "pointer",
   },
+  search: {
+    minWidth: "70vw",
+    maxWidth: "95vw",
+  }
 });
 
 const HomeView = () => {
@@ -78,7 +83,7 @@ const HomeView = () => {
               <Typography variant="h5">Hyderabad</Typography>
             </Grid>
           </Grid>
-          <Grid item sm={12}>
+          <Grid item sm={12} className={classes.search}>
             <SetLocation />
           </Grid>
         </Grid>

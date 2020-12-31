@@ -18,24 +18,24 @@ const ViewTypeItem = () => {
   const classes = useStyles();
 
   return (
-    <Grid container alignItems="center" className={classes.root} spacing={2}>
-      <Grid item sm={3} xs={12}>
+    <Grid container alignItems="stretch" justify="space-evenly" className={classes.root} spacing={2}>
+      <Grid item md={3} sm={6} xs={12}>
         <Link to="/viewType/delivery" style={{ textDecoration: 'none' }}>
           <HeaderViewItem foodImg={foodImg1}>Order Food Online</HeaderViewItem>
         </Link>
       </Grid>
-      <Grid item sm={3} xs={12}>
+      <Grid item md={3} sm={6} xs={12}>
       <Link to="/viewType/dineOut" style={{ textDecoration: 'none' }}>
         <HeaderViewItem foodImg={foodImg2}>Go out for a meal</HeaderViewItem>
         </Link>
       </Grid>
-      <Grid item sm={3} xs={12}>
+      <Grid item md={3} sm={6} xs={12}>
       <Link to="/viewType/nightLife" style={{ textDecoration: 'none' }}>
         <HeaderViewItem foodImg={foodImg3}>
           Nightlife &#38; Clubs
         </HeaderViewItem></Link>
       </Grid>
-      <Grid item sm={3} xs={12}>
+      <Grid item md={3} sm={6} xs={12}>
         <HeaderViewItem foodImg={foodImg4}>Zomato Pro</HeaderViewItem>
       </Grid>
     </Grid>

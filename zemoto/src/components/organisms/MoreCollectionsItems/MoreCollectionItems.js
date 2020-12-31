@@ -15,7 +15,7 @@ const MoreCollectionItems = () => {
     <Grid container spacing={2}>
       {moreCollections.map((value, index) => {
         return (
-          <Grid item sm={3} xs={12}>
+          <Grid item md={3} sm={6} xs={12}>
             <Link
               to={{
                 pathname: "/collections",

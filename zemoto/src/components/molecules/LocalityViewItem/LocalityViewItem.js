@@ -7,13 +7,13 @@ import KeyboardArrowRightIcon from '@material-ui/icons/KeyboardArrowRight';
 const useStyles = makeStyles({
   root: {
     border: "1px solid rgb(200,200,200,.3)",
-    maxWidth: "550px",
+    //maxWidth: "550px",
     borderRadius: "10px",
     padding: "20px",
     margin: "15px",
     boxShadow: "0 1.5px 2px rgb(100, 100, 100, 0.2)",
     color: "rgb(0,0,0,.8)",
-    height: "100px",
+    //height: "100px",
     transition: "transform .2s",
     "&:hover": {
       boxShadow: "1px 2px 6px rgb(100, 100, 100, 0.2)",

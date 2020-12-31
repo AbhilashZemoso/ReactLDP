@@ -11,7 +11,8 @@ const useStyles = makeStyles({
     backgroundColor: "white",
     padding: "20px",
     borderRadius: "10px",
-    minWidth: "1100px",
+    //minWidth: "1100px",
+    width: "100%",
   },
   icon: {
     fontSize: "25px",
@@ -19,7 +20,7 @@ const useStyles = makeStyles({
     color: "rgb(255,0,0,.4)",
   },
   locationInput: {
-    width: "230px",
+    width: "20%",
   },
   line: {
     height: "30px",
@@ -40,7 +41,10 @@ const useStyles = makeStyles({
   shadowBorder: {
     border: "1px solid rgb(100,100,100,.1)",
     boxShadow: "0 2px 6px rgb(100, 100, 100, 0.2)",
-    maxWidth: "900px",
+    //minWidth: "900px",
+  },
+  searchBar: {
+    width:"80%",
   }
 });
 
@@ -67,7 +71,7 @@ const SetLocation = (props) => {
       <Grid item>
         <div className={classes.line}></div>
       </Grid>
-      <Grid item sm>
+      <Grid item sm className={classes.searchBar}>
         <TextField
           size="small"
           placeholder="Search for restaurant, cuisine or a dish"
@@ -80,6 +84,7 @@ const SetLocation = (props) => {
   );
 };
 
+/*
 const places = [
   "Vizag",
   "Hyderabad",
@@ -90,7 +95,7 @@ const places = [
   "Warangal",
   "Delhi",
 ];
-/*
+
 <Autocomplete
           disableClearable
           options={places}

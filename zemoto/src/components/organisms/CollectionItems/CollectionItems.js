@@ -30,10 +30,10 @@ const CollectionItems = () => {
   ];
 
   return (
-    <Grid container alignItems="center" className={classes.root} spacing={2}>
+    <Grid container className={classes.root} spacing={2}>
       {viewType.map((value, index) => {
         return (
-          <Grid item sm={3} xs={12}>
+          <Grid item md={3} sm={6} xs={12}>
             <Link
               to={{
                 pathname: "/collections",

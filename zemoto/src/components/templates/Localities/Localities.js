@@ -9,7 +9,7 @@ const useStyles = makeStyles({
     padding: "80px 0",
   },
   heading: {
-      paddingBottom:"10px",
+      padding:"10px 60px",
   },
 });
 

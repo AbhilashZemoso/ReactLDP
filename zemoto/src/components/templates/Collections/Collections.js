@@ -28,13 +28,13 @@ const Collections = () => {
         <Typography variant="h4">Collections</Typography>
       </Grid>
       <Grid item container direction="row">
-        <Grid item sm  className={classes.subHeading}>
+        <Grid item lg  className={classes.subHeading}>
           <Typography variant="subtitle1">
             Explore curated lists of top restaurants, cafes, pubs, and bars in
             Hyderabad, based on trends
           </Typography>
         </Grid>
-        <Grid item container alignItems="flex-end" justify="flex-end" sm={3} className={classes.link}>
+        <Grid item container alignItems="flex-end" justify="flex-end" lg={3} className={classes.link}>
           <Grid item>
             <Typography mode="link" variant="subtitle1">All Collections in Hyderabad</Typography>
           </Grid>

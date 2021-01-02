@@ -4,6 +4,8 @@ import ViewTypeHeader from "../../components/templates/ViewTypeHeader/ViewTypeHe
 import RestaurantItems from "../../components/organisms/RestaurantItems/RestaurantItems";
 import ViewTypeHeadings from "../../components/organisms/ViewTypeHeadings/ViewTypeHeadings";
 
+import { withAuthenticationRequired } from '@auth0/auth0-react';
+
 const ViewTypePage = (props) => {
 
   return (
@@ -21,4 +23,10 @@ const ViewTypePage = (props) => {
   );
 };
 
-export default ViewTypePage;
+export default withAuthenticationRequired(ViewTypePage, {
+  // Show a message while the user waits to be redirected to the login page.
+  onRedirecting: () => (<div>Redirecting you to the login page...</div>)
+});
+
+
+//export default ViewTypePage;

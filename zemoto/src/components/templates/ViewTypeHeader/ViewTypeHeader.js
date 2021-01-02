@@ -5,6 +5,8 @@ import Typography from "../../atoms/Typography/Typography";
 import SetLocation from "../../organisms/setLocation/setLocation";
 import logo from "../../../resources/images/logoBlack.webp";
 import { Link } from "react-router-dom";
+import LoginButton from "../../organisms/Login/Login";
+import LogoutButton from "../../organisms/Logout/Logout";
 
 const useStyles = makeStyles({
   root: {
@@ -33,16 +35,12 @@ const ViewTypeHeader = () => {
         <Grid item lg>
           <SetLocation shadowBorder />
         </Grid>
-        <Grid item lg={2} justify="flex-end" container spacing={2}>
+        <Grid item lg={3} justify="flex-end" container spacing={2}>
           <Grid item>
-            <Typography mode="link" variant="h6">
-              Login
-            </Typography>
+           <LoginButton color="black"/>
           </Grid>
           <Grid item>
-            <Typography mode="link" variant="h6">
-              Signup
-            </Typography>
+            <LogoutButton color="black"/>
           </Grid>
         </Grid>
       </Grid>

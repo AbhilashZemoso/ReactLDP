@@ -6,11 +6,13 @@ import Typography from "../../atoms/Typography/Typography";
 import logo from "../../../resources/images/logo.webp";
 import SetLocation from "../../organisms/setLocation/setLocation";
 import ViewTypeItem from "../../organisms/ViewTypeItems/ViewTypeItem";
+import LoginButton from "../../organisms/Login/Login";
+import LogoutButton from "../../organisms/Logout/Logout";
 
 const useStyles = makeStyles({
   root: {
     backgroundImage: `linear-gradient(rgba(0,0,0, 0.5), rgb(0, 0, 0, .5)), url(${bgPhoto})`,
-    height: "700px",
+    height: "800px",
     //width: "100%",
     backgroundSize: "cover",
     backgroundPosition: "center",
@@ -45,15 +47,13 @@ const HomeView = () => {
             </Typography>
           </Grid>
           <Grid item>
-            <Typography mode="link" variant="h6">
-              Login
-            </Typography>
-          </Grid>
+            <LoginButton />
+            </Grid>
+          
           <Grid item>
-            <Typography mode="link" variant="h6">
-              Signup
-            </Typography>
+            <LogoutButton />
           </Grid>
+          
         </Grid>
         <Grid item sm={2}></Grid>
         <Grid

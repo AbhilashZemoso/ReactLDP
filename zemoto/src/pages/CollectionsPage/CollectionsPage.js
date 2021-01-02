@@ -5,6 +5,8 @@ import RestaurantItems from "../../components/organisms/RestaurantItems/Restaura
 import MainCollection from "../../components/templates/MainCollection/MainCollection";
 import MoreCollectionView from "../../components/templates/MoreCollectionsView/MoreCollectionView";
 
+import { withAuthenticationRequired } from '@auth0/auth0-react';
+
 const CollectionsPage = (props) => {
 
   return (
@@ -25,4 +27,9 @@ const CollectionsPage = (props) => {
   );
 };
 
-export default CollectionsPage;
+export default withAuthenticationRequired(CollectionsPage, {
+  // Show a message while the user waits to be redirected to the login page.
+  onRedirecting: () => (<div>Redirecting you to the login page...</div>)
+});
+
+//export default CollectionsPage;

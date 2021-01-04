@@ -10,7 +10,7 @@ import LogoutButton from "../../organisms/Logout/Logout";
 
 const useStyles = makeStyles({
   root: {
-    padding: "40px 70px",
+    padding: "20px 70px 40px 70px",
     color: "rgb(100,100,100,.7)",
   },
   logo: {
@@ -29,13 +29,13 @@ const ViewTypeHeader = () => {
       <Grid item container direction="row" alignItems="center" spacing={4}>
         <Grid item>
           <Link to="/" style={{ textDecoration: "none" }}>
-            <img className={classes.logo} src={logo} />
+            <img alt="logo" className={classes.logo} src={logo} />
           </Link>
         </Grid>
         <Grid item lg>
           <SetLocation shadowBorder />
         </Grid>
-        <Grid item lg={3} justify="flex-end" container spacing={2}>
+        <Grid item lg={3} justify="flex-end" container spacing={4}>
           <Grid item>
            <LoginButton color="black"/>
           </Grid>

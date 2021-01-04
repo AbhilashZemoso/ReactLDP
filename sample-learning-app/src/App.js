@@ -14,6 +14,7 @@ import { ThemeProvider } from "@material-ui/core/styles";
 import theme from "./theme";
 import SampleApp from "./SampleApp/App";
 import LearnFilter from "./LearnFilter/LearnFilter";
+import Counter from "./containers/Counter/Counter";
 
 
 class App extends Component {
@@ -118,6 +119,7 @@ class App extends Component {
     return (
       <div>
         <div name="learning">
+          <Counter />
           <ThemeProvider theme={theme}>
             <div className="App">
               <Reservation />

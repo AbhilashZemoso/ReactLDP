@@ -9,7 +9,7 @@ import ArrowRightIcon from "@material-ui/icons/ArrowRight";
 const useStyles = makeStyles({
   root: {
     borderRadius: "15px",
-    height: "500px",
+    height: "480px",
     width: "100%",
     backgroundSize: "cover",
     backgroundPosition: "center",
@@ -33,7 +33,7 @@ const CollectionViewItem = (props) => {
 
   let rootClass = classes.root;
 
-  if (props.mode == "small") {
+  if (props.mode === "small") {
     rootClass += " " + classes.small;
   }
 

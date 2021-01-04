@@ -65,7 +65,7 @@ const Restaurant = (props) => {
       className={classes.root}
     >
       <Grid item>
-        <img className={classes.image} src={props.image} />
+        <img alt="restaurant pic" className={classes.image} src={props.image} />
         <div className={classes.pro} />
         <div className={classes.flat} />
       </Grid>

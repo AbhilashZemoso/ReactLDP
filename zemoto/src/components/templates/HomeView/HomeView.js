@@ -65,7 +65,7 @@ const HomeView = () => {
           spacing={5}
         >
           <Grid item>
-            <img className={classes.logo} src={logo} />
+            <img alt="logo" className={classes.logo} src={logo} />
           </Grid>
           <Grid
             item

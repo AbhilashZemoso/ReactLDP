@@ -39,7 +39,7 @@ const HeaderViewItem = (props) => {
       className={classes.root}
     >
       <Grid item>
-        <img className={classes.image} src={props.foodImg} />
+        <img alt="view type" className={classes.image} src={props.foodImg} />
       </Grid>
       <Grid item className={classes.content}>
         <Typography {...props} variant="h6">

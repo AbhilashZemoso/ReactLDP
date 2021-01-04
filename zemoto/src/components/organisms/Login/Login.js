@@ -1,19 +1,13 @@
 import React from "react";
 import { useAuth0 } from "@auth0/auth0-react";
-//import Typography from "../Typography/Typography";
-import { Button } from "@material-ui/core";
+import Typography from "../../atoms/Typography/Typography";
+//import { Button } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
 
 const useStyles = makeStyles({
   button: {
-    fontSize: "25px",
     color: "white",
-    fontWeight: "600",
-  },
-  darkButton: {
-    fontSize: "25px",
-    fontWeight: "600",
-  },
+  }
 });
 
 function LoginButton(props) {
@@ -21,21 +15,22 @@ function LoginButton(props) {
 
   const { isAuthenticated, loginWithRedirect } = useAuth0();
 
-  let user = useAuth0();
-  //console.log(user);
+  const user = useAuth0();
 
-  let buttonClass = classes.button;
-  if(props.color==="black"){
-    buttonClass = classes.darkButton;
+  let buttonClass = "";
+  if (props.color !== "black") {
+    buttonClass = classes.button;
   }
   return (
     (!isAuthenticated && (
-      <Button onClick={loginWithRedirect} className={buttonClass}>
-        Login
-      </Button>
+      <div onClick={loginWithRedirect}>
+        <Typography mode="link" className={buttonClass}  variant="h6" mode="link" >Login</Typography>
+      </div>
     )) ||
     (isAuthenticated && (
-      <Button className={buttonClass}>{user.user.given_name}</Button>
+      <div>
+      <Typography className={buttonClass}  variant="h6" mode="link" >{user.user.given_name}</Typography>
+      </div>
     ))
   );
 }

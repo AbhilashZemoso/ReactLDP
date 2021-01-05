@@ -1,3 +1,4 @@
+import { Button } from "@material-ui/core";
 import React, { Component } from "react";
 import auth from "./../auth/initAuth";
 class Login extends Component {
@@ -18,12 +19,17 @@ class Login extends Component {
   _handlePasswordChange = (e) => {
     this.setState({ password: e.target.value });
   };
+  _handleLoginWithGoogle = (e) => {
+    e.preventDefault();
+    auth.loginWithGoogle();
+  }
   _logout = () => {
     auth.logout();
     this.props._refresh();
   };
   _renderLoginForm = () => {
     return (
+      <div>
       <form className="commentForm" onSubmit={this._handleSubmit}>
         <input
           type="email"
@@ -37,6 +43,8 @@ class Login extends Component {
         />
         <input type="submit" value="Login" />
       </form>
+      <Button onClick={this._handleLoginWithGoogle}>Login with Google</Button>
+      </div>
     );
   };
   _renderLogout = () => {

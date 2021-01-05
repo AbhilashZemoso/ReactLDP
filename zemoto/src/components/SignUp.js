@@ -1,5 +1,7 @@
 import React, { Component } from "react";
 import auth from "./../auth/initAuth";
+
+
 class SignUp extends Component {
   constructor(props) {
     super(props);
@@ -23,6 +25,7 @@ class SignUp extends Component {
   };
   render() {
     return (
+      <React.Fragment>
       <form className="commentForm" onSubmit={this._handleSubmit}>
         <input
           type="email"
@@ -36,6 +39,8 @@ class SignUp extends Component {
         />
         <input type="submit" value="Sign up" />
       </form>
+      <p></p>
+      </React.Fragment>
     );
   }
 }

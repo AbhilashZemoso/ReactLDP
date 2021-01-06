@@ -2,12 +2,12 @@ import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import { Grid } from "@material-ui/core";
 import bgPhoto from "../../../resources/images/headerBg.jpg";
-import Typography from "../../atoms/Typography/Typography";
 import logo from "../../../resources/images/logo.webp";
 import SetLocation from "../../organisms/setLocation/setLocation";
 import ViewTypeItem from "../../organisms/ViewTypeItems/ViewTypeItem";
-import LoginButton from "../../organisms/Login/Login";
-import LogoutButton from "../../organisms/Logout/Logout";
+import { Link } from "react-router-dom";
+import Typography from "../../atoms/Typography/Typography";
+import auth from "../../../auth/initAuth";
 
 const useStyles = makeStyles({
   root: {
@@ -31,8 +31,50 @@ const useStyles = makeStyles({
   search: {
     minWidth: "70vw",
     maxWidth: "95vw",
-  }
+  },
 });
+
+const SignupView = () => {
+  return (
+    <React.Fragment>
+      <Grid item>
+        <Typography mode="link" variant="h6">
+          <Link
+            to="/login"
+            style={{ textDecoration: "inherit", color: "inherit" }}
+          >
+            Log in
+          </Link>
+        </Typography>
+      </Grid>
+
+      <Grid item>
+        <Typography mode="link" variant="h6">
+          <Link
+            to="/signup"
+            style={{ textDecoration: "inherit", color: "inherit" }}
+          >
+            Sign up
+          </Link>
+        </Typography>
+      </Grid>
+    </React.Fragment>
+  );
+};
+const logout = () => {
+  auth.logout();
+  window.location.reload();
+};
+
+const LogoutView = () => {
+  return (
+    <Grid item onClick={logout}>
+      <Typography mode="link" variant="h6">
+        Logout
+      </Typography>
+    </Grid>
+  );
+};
 
 const HomeView = () => {
   const classes = useStyles();
@@ -46,14 +88,7 @@ const HomeView = () => {
               Get the App
             </Typography>
           </Grid>
-          <Grid item>
-            <LoginButton />
-            </Grid>
-          
-          <Grid item>
-            <LogoutButton />
-          </Grid>
-          
+          {auth.loggedIn() ? LogoutView() : SignupView()}
         </Grid>
         <Grid item sm={2}></Grid>
         <Grid

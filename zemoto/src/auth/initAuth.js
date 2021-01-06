@@ -1,6 +1,6 @@
 import AuthService from "./AuthService";
 const auth = new AuthService(
-  "dev-06spj9xr.us.auth0.com",
-  "daYhkGjj4205EFDwCgPpTtB7TokzSApR"
+  process.env.REACT_APP_AUTH_CLIENT_ID,
+  process.env.REACT_APP_AUTH_DOMAIN_ADDRESS
 );
 export default auth;

@@ -5,18 +5,11 @@ import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import { BrowserRouter } from "react-router-dom";
 import ScrollToTop from "./ScrollToTop";
-import { Auth0Provider } from "@auth0/auth0-react";
 
 ReactDOM.render(
   <BrowserRouter>
-    <Auth0Provider
-      domain="dev-06spj9xr.us.auth0.com"
-      clientId="daYhkGjj4205EFDwCgPpTtB7TokzSApR"
-      redirectUri={window.location.origin}
-    >
       <ScrollToTop />
       <App />
-    </Auth0Provider>
   </BrowserRouter>,
   document.getElementById("root")
 );

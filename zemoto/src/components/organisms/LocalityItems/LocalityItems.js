@@ -17,9 +17,9 @@ const LocalityItems = () => {
     <Grid container className={classes.root} spacing={2}>
       {viewType.map((value, index) => {
         return (
-          <Grid item md={4} sm={6} xs={12}>
+          <Grid item md={4} sm={6} xs={12} key={index}>
             <Link to="/viewType/delivery" style={{ textDecoration: "inherit" }}>
-              <LocalityViewItem {...value} id={index}></LocalityViewItem>
+              <LocalityViewItem {...value} ></LocalityViewItem>
             </Link>
           </Grid>
         );

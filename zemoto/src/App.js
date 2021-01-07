@@ -7,15 +7,13 @@ import ViewTypePage from "./pages/ViewTypePage/ViewTypePage";
 
 import auth from './auth/initAuth';
 import React from 'react';
-import LoginPage from "./pages/LoginPage/LoginPage";
-import SignupPage from "./pages/SignupPage/SignupPage";
 
 const PrivateRoute = ({ component, ...rest }) => (
   <Route {...rest} render={props => (
     auth.loggedIn() ? (
       React.createElement(component, props)
     ) : (
-      <Redirect to="/login" />
+      <Redirect to="/?login" />
     )
   )}/>
 )
@@ -26,8 +24,6 @@ function App() {
     <div className="App">
      
       <Route exact path="/" component={HomePage} />
-      <Route exact path="/login" component={LoginPage} />
-      <Route exact path="/signup" component={SignupPage} />
       <PrivateRoute
         exact
         path="/viewType/delivery"

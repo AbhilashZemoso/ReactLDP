@@ -33,7 +33,7 @@ const CollectionItems = () => {
     <Grid container className={classes.root} spacing={4}>
       {viewType.map((value, index) => {
         return (
-          <Grid item md={3} sm={6} xs={12}>
+          <Grid item md={3} sm={6} xs={12} key={index}>
             <Link
               to={{
                 pathname: "/collections",
@@ -47,7 +47,6 @@ const CollectionItems = () => {
               <CollectionViewItem
                 {...value}
                 foodImg={photoCollection[index]}
-                id={index}
               />
             </Link>
           </Grid>

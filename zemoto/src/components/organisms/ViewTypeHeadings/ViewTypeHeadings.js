@@ -70,7 +70,7 @@ const ViewTypeHeadings = (props) => {
             classList += " " + classes.active;
           }
           return (
-            <Grid item className={classList}>
+            <Grid item className={classList} key={index}>
               <Link
                 to={"/viewType/" + viewTypeItem.link}
                 className={classes.link}

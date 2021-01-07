@@ -15,7 +15,7 @@ const MoreCollectionItems = () => {
     <Grid container spacing={2}>
       {moreCollections.map((value, index) => {
         return (
-          <Grid item md={3} sm={6} xs={12}>
+          <Grid item md={3} sm={6} xs={12} key={index}>
             <Link
               to={{
                 pathname: "/collections",
@@ -26,7 +26,7 @@ const MoreCollectionItems = () => {
               }}
               style={{ textDecoration: "none" }}
             >
-              <CollectionViewItem {...value} id={index} mode="small" />
+              <CollectionViewItem {...value} mode="small" />
             </Link>
           </Grid>
         );

@@ -22,7 +22,7 @@ const useStyles = makeStyles({
 
 const logout = () => {
   auth.logout();
-  window.location.reload();
+  window.location.replace("http://localhost:3000/");
 };
 
 const ViewTypeHeader = () => {

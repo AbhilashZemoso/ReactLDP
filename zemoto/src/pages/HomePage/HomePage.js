@@ -4,12 +4,12 @@ import HomeView from "../../components/templates/HomeView/HomeView";
 import Collections from "../../components/templates/Collections/Collections";
 import Localities from "../../components/templates/Localities/Localities";
 
-const HomePage = () => {
+const HomePage = (props) => {
 
   return (
     <Grid container direction="column">
       <Grid item>
-        <HomeView />
+        <HomeView {...props}/>
       </Grid>
       <Grid item>
         <Collections />

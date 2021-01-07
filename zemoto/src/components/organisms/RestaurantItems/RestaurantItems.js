@@ -34,8 +34,8 @@ const RestaurantItems = (props) => {
     >
       {restaurants.map((value, index) => {
         return (
-          <Grid item id={index} md={4} sm={6} xs={12} className={classes.item}>
-            <Restaurant {...value} id={index}></Restaurant>
+          <Grid item id={index} md={4} sm={6} xs={12} key={index} className={classes.item}>
+            <Restaurant {...value} ></Restaurant>
           </Grid>
         );
       })}

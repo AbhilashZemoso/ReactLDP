@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import { Grid } from "@material-ui/core";
 import bgPhoto from "../../../resources/images/headerBg.jpg";
@@ -8,6 +8,8 @@ import ViewTypeItem from "../../organisms/ViewTypeItems/ViewTypeItem";
 import { Link } from "react-router-dom";
 import Typography from "../../atoms/Typography/Typography";
 import auth from "../../../auth/initAuth";
+import LoginContainer from "../../organisms/LoginContainer/LoginContainer";
+import SignupContainer from "../../organisms/SignupContainer/SignupContainer";
 
 const useStyles = makeStyles({
   root: {
@@ -34,28 +36,19 @@ const useStyles = makeStyles({
   },
 });
 
-const SignupView = () => {
+const SignupView = (setDisplayLogin,setDisplaySignup) => {
   return (
     <React.Fragment>
-      <Grid item>
+      <Grid item onClick={()=>setDisplayLogin(true)}>
         <Typography mode="link" variant="h6">
-          <Link
-            to="/login"
-            style={{ textDecoration: "inherit", color: "inherit" }}
-          >
-            Log in
-          </Link>
+          Log in
         </Typography>
       </Grid>
 
-      <Grid item>
+      <Grid item onClick={()=>setDisplaySignup(true)}>
         <Typography mode="link" variant="h6">
-          <Link
-            to="/signup"
-            style={{ textDecoration: "inherit", color: "inherit" }}
-          >
+          
             Sign up
-          </Link>
         </Typography>
       </Grid>
     </React.Fragment>
@@ -63,7 +56,7 @@ const SignupView = () => {
 };
 const logout = () => {
   auth.logout();
-  window.location.reload();
+  window.location.replace("http://localhost:3000/");
 };
 
 const LogoutView = () => {
@@ -76,11 +69,29 @@ const LogoutView = () => {
   );
 };
 
-const HomeView = () => {
+const HomeView = (props) => {
   const classes = useStyles();
+
+  const hash = props.location.hash;
+  if (hash) {
+    const ind = hash.indexOf("id_token");
+    localStorage.setItem("id_token", hash.substring(ind + 9, hash.length));
+  }
+
+  let loginInUrl = false;
+
+  if(props.location.search.indexOf("login")!==-1){
+    loginInUrl = true;
+  }
+
+  const [displayLogin, setDisplayLogin] = useState(loginInUrl);
+  const [displaySignup, setDisplaySignup] = useState(false);
+
 
   return (
     <Grid container spacing={7}>
+      {displaySignup && <SignupContainer setDisplay={setDisplaySignup} setOtherDisplay={setDisplayLogin}/>}
+      {displayLogin && <LoginContainer setDisplay={setDisplayLogin}  setOtherDisplay={setDisplaySignup}/>}
       <Grid item container direction="column" className={classes.root}>
         <Grid item container spacing={7} className={classes.topPart}>
           <Grid item sm>
@@ -88,9 +99,10 @@ const HomeView = () => {
               Get the App
             </Typography>
           </Grid>
-          {auth.loggedIn() ? LogoutView() : SignupView()}
+          {auth.loggedIn() ? LogoutView() : SignupView(setDisplayLogin,setDisplaySignup)}
         </Grid>
         <Grid item sm={2}></Grid>
+
         <Grid
           item
           container

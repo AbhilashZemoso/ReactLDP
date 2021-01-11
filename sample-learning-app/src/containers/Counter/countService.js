@@ -5,4 +5,3 @@ export const incrementCount = () => {
     }, 1000)
   );
 };
-

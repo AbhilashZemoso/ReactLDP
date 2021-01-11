@@ -35,6 +35,7 @@ const mapStateToProps = (state) => {
 };
 
 const incrementAction = () => async (dispatch, getState) => {
+  //can implement logging
   await incrementCount();
   dispatch({ type: actionTypes.INCREMENT });
 };
@@ -53,21 +54,15 @@ const mapDispatchToProps = (dispatch) => {
       dispatch({ type: actionTypes.INCREMENT_VAL, value: 5 }),
     onDecrementValue: () =>
       dispatch({ type: actionTypes.DECREMENT_VAL, value: 5 }),
-    onStoreResult: (result) =>
-      dispatch({ type: actionTypes.STORE_RESULT, result: result }),
-    onDeleteResult: (id) =>
-      dispatch({ type: actionTypes.DELETE_RESULT, resultElId: id }),
   };
 };
 */
 
-
 const mapDispatchToProps = {
-    onIncrementCounter: incrementAction,
-    onDecrementCounter: decrementAction,
-  };
-
-
-
+  onIncrementCounter: incrementAction,
+  onDecrementCounter: decrementAction,
+  onIncrementValue: () => ({ type: actionTypes.INCREMENT_VAL, value: 5 }),
+  onDecrementValue: () => ({ type: actionTypes.DECREMENT_VAL, value: 5 }),
+};
 
 export default connect(mapStateToProps, mapDispatchToProps)(Counter);

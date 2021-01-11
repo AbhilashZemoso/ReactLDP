@@ -8,7 +8,7 @@ class Counter extends Component {
   render() {
     return (
       <div>
-        <CounterOutput value={this.props.ctr} />
+        <CounterOutput  value={this.props.ctr} />
         <CounterControl
           label="Increment"
           clicked={this.props.onIncrementCounter}

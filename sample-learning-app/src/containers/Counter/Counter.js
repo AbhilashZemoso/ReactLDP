@@ -3,12 +3,13 @@ import { connect } from "react-redux";
 import CounterControl from "../../components/CounterControl/CounterControl";
 import CounterOutput from "../../components/CounterOutput/CounterOutput";
 import * as actionTypes from "../../store/actions";
+import { incrementCount } from "./countService";
 
 class Counter extends Component {
   render() {
     return (
       <div>
-        <CounterOutput  value={this.props.ctr} />
+        <CounterOutput value={this.props.ctr} />
         <CounterControl
           label="Increment"
           clicked={this.props.onIncrementCounter}
@@ -22,34 +23,51 @@ class Counter extends Component {
           label="Subtract 5"
           clicked={this.props.onDecrementValue}
         />
-        
       </div>
     );
   }
 }
 
-const mapStateToProps = state => {
+const mapStateToProps = (state) => {
   return {
     ctr: state.counter,
   };
 };
 
-const mapDispatchToProps = dispatch => {
+const incrementAction = () => async (dispatch, getState) => {
+  await incrementCount();
+  dispatch({ type: actionTypes.INCREMENT });
+};
+
+const decrementAction = () => async (dispatch, getState) => {
+  await incrementCount();
+  dispatch({ type: actionTypes.DECREMENT });
+};
+
+/*
+const mapDispatchToProps = (dispatch) => {
   return {
-    onIncrementCounter: () => dispatch({ type: actionTypes.INCREMENT }),
+    onIncrementCounter: () => incrementAction(),
     onDecrementCounter: () => dispatch({ type: actionTypes.DECREMENT }),
     onIncrementValue: () =>
       dispatch({ type: actionTypes.INCREMENT_VAL, value: 5 }),
     onDecrementValue: () =>
       dispatch({ type: actionTypes.DECREMENT_VAL, value: 5 }),
-    onStoreResult: result =>
+    onStoreResult: (result) =>
       dispatch({ type: actionTypes.STORE_RESULT, result: result }),
-    onDeleteResult: id =>
-      dispatch({ type: actionTypes.DELETE_RESULT, resultElId: id })
+    onDeleteResult: (id) =>
+      dispatch({ type: actionTypes.DELETE_RESULT, resultElId: id }),
   };
 };
+*/
 
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(Counter);
+
+const mapDispatchToProps = {
+    onIncrementCounter: incrementAction,
+    onDecrementCounter: decrementAction,
+  };
+
+
+
+
+export default connect(mapStateToProps, mapDispatchToProps)(Counter);

@@ -5,15 +5,25 @@ import collection3 from "../resources/images/collection3.jpg";
 import collection4 from "../resources/images/collection4.jpg";
 import collection5 from "../resources/images/collection5.jpg";
 
-
-
 export default function useRestaurantsFilter() {
   const [restaurants, setRestaurantsFilter] = useState(() => restaurantsList);
-  
-  const applyFilter = (type, payload) => {
-    let newRestaurants = [...restaurants];
-    if (type === "sort") {
-      switch (payload["category"]) {
+
+  const defaultFilter = {
+    sort: "",
+    rating: 0,
+    cost: 0,
+  };
+
+  const [filter, setFilter] = useState(defaultFilter);
+
+  const applyFilter = (type,value) => {
+    const newFilter = filter;
+    newFilter[type] = value;
+    setFilter(newFilter);
+    let newRestaurants = [...restaurantsList];
+    console.log(newFilter, filter);
+    if (filter["sort"] !== "") {
+      switch (filter["sort"]) {
         case "rating":
           newRestaurants = newRestaurants.sort(
             (restaurantOne, restaurantTwo) =>
@@ -21,40 +31,40 @@ export default function useRestaurantsFilter() {
           );
           break;
         case "time":
-            newRestaurants = newRestaurants.sort(
-                (restaurantOne, restaurantTwo) =>
-                  restaurantOne.time - restaurantTwo.time
-              );
-            break;
-        case "cost":
-            if(payload["high-to-low"]){
-                newRestaurants = newRestaurants.sort(
-                    (restaurantOne, restaurantTwo) =>
-                      restaurantTwo.cost - restaurantOne.cost
-                  );
-            }
-            else{
-                newRestaurants = newRestaurants.sort(
-                    (restaurantOne, restaurantTwo) =>
-                      restaurantOne.cost - restaurantTwo.cost
-                  );
-            }
-            break;
+          newRestaurants = newRestaurants.sort(
+            (restaurantOne, restaurantTwo) =>
+              restaurantOne.time - restaurantTwo.time
+          );
+          break;
+        case "cost asc":
+          newRestaurants = newRestaurants.sort(
+            (restaurantOne, restaurantTwo) =>
+              restaurantTwo.cost - restaurantOne.cost
+          );
+
+          break;
+        case "cost dec":
+          newRestaurants = newRestaurants.sort(
+            (restaurantOne, restaurantTwo) =>
+              restaurantOne.cost - restaurantTwo.cost
+          );
+          break;
       }
     }
-    if(type==='rating'){
-        newRestaurants = newRestaurants.filter((restaurant)=>restaurant.rating>=payload["min"]);
+    if (filter["rating"] !== 0) {
+      newRestaurants = newRestaurants.filter(
+        (restaurant) => restaurant.rating >= filter["rating"]
+      );
     }
-    if(type==='cost'){
-        newRestaurants = newRestaurants.filter((restaurant)=>restaurant.cost>=payload["min"]);
+    if (filter["cost"] !== 0) {
+      newRestaurants = newRestaurants.filter(
+        (restaurant) => restaurant.cost >= filter["cost"]
+      );
     }
     setRestaurantsFilter(newRestaurants);
-    
   };
 
   return [restaurants, applyFilter];
-
-
 }
 
 const restaurantsList = [
@@ -72,7 +82,7 @@ const restaurantsList = [
   {
     image: collection1,
     name: "Hotel Shadab",
-    rating: 4.4,
+    rating: 2.4,
     reviews: "10K",
     foodTypes: ["Mughali", "Hyderabadi", "Biriyani"],
     cost: 350,
@@ -138,10 +148,10 @@ const restaurantsList = [
   {
     image: collection4,
     name: "Pista House",
-    rating: 4.3,
+    rating: 2.3,
     reviews: "1090",
     foodTypes: ["Bakery", "Italian", "Fast Food"],
-    cost: 100,
+    cost: 1000,
     time: 35,
     pro: 15,
     flat: 150,
@@ -149,10 +159,10 @@ const restaurantsList = [
   {
     image: collection1,
     name: "Pizza Hut",
-    rating: 3.8,
+    rating: 3.3,
     reviews: "46.2K",
     foodTypes: ["Pizza", "Fast Food"],
-    cost: 250,
+    cost: 650,
     time: 54,
     pro: 15,
     flat: 150,
@@ -174,7 +184,7 @@ const restaurantsList = [
     rating: 4.1,
     reviews: "45.6K",
     foodTypes: ["Mughlai", "Hyderabadi", "Biriyani"],
-    cost: 200,
+    cost: 550,
     time: 37,
     pro: 15,
     flat: 150,
@@ -182,10 +192,10 @@ const restaurantsList = [
   {
     image: collection2,
     name: "McDonald's",
-    rating: 4.1,
+    rating: 1.1,
     reviews: "25.4K",
     foodTypes: ["Burger", "Fast Food"],
-    cost: 200,
+    cost: 450,
     time: 54,
     pro: 15,
     flat: 150,

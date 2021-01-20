@@ -12,11 +12,12 @@ export default function useRestaurantsFilter() {
     sort: "",
     rating: 0,
     cost: 0,
+    cuisine: [],
   };
 
   const [filter, setFilter] = useState(defaultFilter);
 
-  const applyFilter = (type,value) => {
+  const applyFilter = (type, value) => {
     const newFilter = filter;
     newFilter[type] = value;
     setFilter(newFilter);
@@ -61,13 +62,20 @@ export default function useRestaurantsFilter() {
         (restaurant) => restaurant.cost >= filter["cost"]
       );
     }
+    if (filter["cuisine"].length !== 0) {
+      newRestaurants = newRestaurants.filter((restaurant) =>
+        restaurant.foodTypes.some((foodType) =>
+          filter["cuisine"].includes(foodType)
+        )
+      );
+    }
     setRestaurantsFilter(newRestaurants);
   };
 
   return [restaurants, applyFilter];
 }
 
-const restaurantsList = [
+export const restaurantsList = [
   {
     image: collection2,
     name: "Sr Balaki Famili Dhaba",

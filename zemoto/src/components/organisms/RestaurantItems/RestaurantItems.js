@@ -1,12 +1,15 @@
 import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
-import { Grid } from "@material-ui/core";
+import { Checkbox, Grid, TextField } from "@material-ui/core";
 import Restaurant from "../../molecules/Restaurant/Restaurant";
-import useRestaurantsFilter from "../../../services/useRestaurantsFilter";
+import useRestaurantsFilter, {
+  restaurantsList,
+} from "../../../services/useRestaurantsFilter";
 import InputLabel from "@material-ui/core/InputLabel";
 import MenuItem from "@material-ui/core/MenuItem";
 import FormControl from "@material-ui/core/FormControl";
 import Select from "@material-ui/core/Select";
+import { Autocomplete } from "@material-ui/lab";
 
 const useStyles = makeStyles({
   item: {
@@ -25,6 +28,13 @@ const RestaurantItems = (props) => {
   const classes = useStyles();
 
   const [restaurants, applyFilter] = useRestaurantsFilter();
+
+  let availableCuisine = new Set();
+  restaurantsList.forEach((restaurant) => {
+    restaurant.foodTypes.forEach((foodType) => availableCuisine.add(foodType));
+  });
+
+  availableCuisine = [...availableCuisine];
 
   return (
     <Grid container className={classes.root}>
@@ -80,6 +90,29 @@ const RestaurantItems = (props) => {
               <MenuItem value={1000}>min 1000</MenuItem>
             </Select>
           </FormControl>
+        </Grid>
+        <Grid item>
+          <Autocomplete
+            onChange={(event, value) => applyFilter("cuisine", value)}
+            multiple
+            options={availableCuisine}
+            disableCloseOnSelect
+            renderOption={(option, { selected }) => (
+              <React.Fragment>
+                <Checkbox style={{ marginRight: 8 }} checked={selected} />
+                {option}
+              </React.Fragment>
+            )}
+            style={{ width: 500 }}
+            renderInput={(params) => (
+              <TextField
+                {...params}
+                variant="outlined"
+                label="Checkboxes"
+                placeholder="Favorites"
+              />
+            )}
+          />
         </Grid>
       </Grid>
 

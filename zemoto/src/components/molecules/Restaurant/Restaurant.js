@@ -6,22 +6,10 @@ import StarBorderIcon from "@material-ui/icons/StarBorder";
 import Rating from "@material-ui/lab/Rating";
 import FiberManualRecordIcon from "@material-ui/icons/FiberManualRecord";
 
-
 const useStyles = makeStyles({
   root: {
     maxWidth: "565px",
     position: "relative",
-  },
-  pro:{
-    position: "absolute",
-    color: "blue",
-    height: "25px",
-    width : "50px",
-    top: "-5px",
-    zIndex:"2px",
-  },
-  flat:{
-
   },
   image: {
     width: "100%",
@@ -31,31 +19,43 @@ const useStyles = makeStyles({
   },
   heading: {
     fontWeight: "500",
-    color: "red",
   },
   rating: {
     padding: "0 8px",
   },
-  reviews:{
+  reviews: {
     color: "rgb(100,100,100,.6)",
   },
-  foodTypes:{
+  foodTypes: {
     color: "rgb(100,100,100,.9)",
   },
-  dot:{
+  dot: {
     color: "rgb(100,100,100,.5)",
     fontSize: "10px",
     padding: "4px 10px",
   },
-  costAndTime :{
+  costAndTime: {
     color: "rgb(100,100,100,.7)",
   },
 });
 
-const Restaurant = (props) => {
+const Restaurant = ({
+  foodTypes,
+  image,
+  name,
+  rating,
+  reviews,
+  cost,
+  time,
+  ...props
+}) => {
   const classes = useStyles();
 
-    const foodTypes = props.foodTypes.join(', ');
+  if (foodTypes) {
+    foodTypes = foodTypes.join(", ");
+  } else {
+    foodTypes = "";
+  }
 
   return (
     <Grid
@@ -63,37 +63,39 @@ const Restaurant = (props) => {
       direction="column"
       alignItems="flex-start"
       className={classes.root}
+      {...props}
     >
       <Grid item>
-        <img alt="restaurant pic" className={classes.image} src={props.image} />
-        <div className={classes.pro} />
-        <div className={classes.flat} />
+        <img alt="restaurant pic" className={classes.image} src={image} />
       </Grid>
       <Grid item className={classes.content}>
-        <Typography className={classes.heading} variant="h6">{props.name}</Typography>
+        <Typography className={classes.heading} variant="h6" data-testid="name">
+          {name}
+        </Typography>
       </Grid>
       <Grid item container direction="row" alignItems="center">
         <Rating
           name="customized-empty"
-          defaultValue={props.rating}
+          defaultValue={rating}
           precision={0.1}
           size="small"
           emptyIcon={<StarBorderIcon fontSize="inherit" />}
         />
-        <Box className={classes.rating}>
-        <Typography >{props.rating}</Typography>
+        <Box className={classes.rating} data-testid="rating">
+          <Typography>{rating}</Typography>
         </Box>
         <Box className={classes.reviews}>
-        <Typography>({props.reviews} Delivery Reviews)</Typography>
+          <Typography data-testid="reviews">({reviews} Delivery Reviews)</Typography>
         </Box>
       </Grid>
       <Grid item className={classes.foodTypes}>
-        <Typography >{foodTypes}</Typography>
+        <Typography data-testid="foodTypes">{foodTypes}</Typography>
       </Grid>
       <Grid item className={classes.costAndTime}>
-        <Typography >
-          ₹{props.cost} per person
-          <FiberManualRecordIcon className={classes.dot} />{props.time} min
+        <Typography data-testid="costAndTime">
+          ₹{cost} per person
+          <FiberManualRecordIcon className={classes.dot} />
+          {time} min
         </Typography>
       </Grid>
     </Grid>

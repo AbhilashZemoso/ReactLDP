@@ -26,7 +26,7 @@ const useStyles = makeStyles({
   },
 });
 
-const HeaderViewItem = (props) => {
+const HeaderViewItem = ({ foodImg, children, ...props }) => {
   const classes = useStyles();
 
   //const foodImg = require('./foodImg.png');
@@ -37,13 +37,14 @@ const HeaderViewItem = (props) => {
       direction="column"
       alignItems="center"
       className={classes.root}
+      {...props}
     >
       <Grid item>
-        <img alt="view type" className={classes.image} src={props.foodImg} />
+        <img alt="view type" className={classes.image} src={foodImg} />
       </Grid>
       <Grid item className={classes.content}>
-        <Typography {...props} variant="h6">
-          {props.children}
+        <Typography variant="h6" data-testid="children" data-testid="text">
+          {children}
         </Typography>
       </Grid>
     </Grid>

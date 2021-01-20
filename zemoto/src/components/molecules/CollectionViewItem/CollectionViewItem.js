@@ -28,12 +28,18 @@ const useStyles = makeStyles({
   },
 });
 
-const CollectionViewItem = (props) => {
+const CollectionViewItem = ({
+  mode,
+  foodImg,
+  special,
+  placesCount,
+  ...props
+}) => {
   const classes = useStyles();
 
   let rootClass = classes.root;
 
-  if (props.mode === "small") {
+  if (mode === "small") {
     rootClass += " " + classes.small;
   }
 
@@ -43,15 +49,17 @@ const CollectionViewItem = (props) => {
       alignItems="flex-end"
       className={rootClass}
       style={{
-        backgroundImage: `linear-gradient(rgba(0,0,0, 0.1), rgb(0, 0, 0, .6)), url(${props.foodImg})`,
+        backgroundImage: `linear-gradient(rgba(0,0,0, 0.1), rgb(0, 0, 0, .6)), url(${foodImg})`,
       }}
+      data-testid="main"
+      {...props}
     >
       <Grid item className={classes.content}>
-        <Typography {...props} variant="h6">
-          {props.special}
+        <Typography data-testid="special" variant="h6">
+          {special}
         </Typography>
-        <Typography {...props} variant="subtitle2">
-          {props.placesCount} Places
+        <Typography variant="subtitle2" data-testid="place">
+          {placesCount} Places
           <ArrowRightIcon className={classes.arrowIcon} fontSize="small" />
         </Typography>
       </Grid>

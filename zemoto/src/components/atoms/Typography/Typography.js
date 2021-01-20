@@ -9,7 +9,7 @@ const useStyles = makeStyles({
   },
 });
 
-const TypographyComponent = (props) => {
+const TypographyComponent = ({children, variant, ...props}) => {
   const classes = useStyles();
 
   const classList = [];
@@ -21,8 +21,8 @@ const TypographyComponent = (props) => {
   const className = classList.join(" ");
 
   return (
-    <Typography className={className} variant={props.variant}>
-      {props.children}
+    <Typography className={className} variant={variant} {...props}>
+      {children}
     </Typography>
   );
 };

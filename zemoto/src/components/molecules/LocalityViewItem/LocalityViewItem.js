@@ -25,14 +25,14 @@ const useStyles = makeStyles({
   },
 });
 
-const LocalityViewItem = (props) => {
+const LocalityViewItem = ({placeName,placesCount,...props}) => {
   const classes = useStyles();
 
   return (
-    <Grid container alignItems="center" className={classes.root}>
+    <Grid container alignItems="center" className={classes.root} {...props}>
       <Grid item xs>
-      <Typography {...props} variant="h6">
-        {props.placeName} ({props.placesCount} places)
+      <Typography {...props} variant="h6" data-testid="text">
+        {placeName} ({placesCount} places)
       </Typography>
       </Grid>
       <Grid item>

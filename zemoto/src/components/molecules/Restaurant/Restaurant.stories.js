@@ -19,6 +19,4 @@ Primary.args = {
     foodTypes : ["Hyderabadi", "Chinese", "Biriyani"],
     cost: 150,
     time: 44,
-    pro: 15,
-    flat: 150,
 };

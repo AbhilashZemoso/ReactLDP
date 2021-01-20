@@ -48,17 +48,17 @@ const useStyles = makeStyles({
   }
 });
 
-const SetLocation = (props) => {
+const SetLocation = ({shadowBorder, ...props}) => {
   const classes = useStyles();
 
   let rootClass = classes.root;
 
-  if(props.shadowBorder){
+  if(shadowBorder){
       rootClass += " "+ classes.shadowBorder;
   }
 
   return (
-    <Grid container alignItems="center" className={rootClass}>
+    <Grid container alignItems="center" className={rootClass} {...props}>
       <Grid item>
         <RoomRoundedIcon className={classes.icon} />
       </Grid>

@@ -10,11 +10,11 @@ const useStyles = makeStyles({
   },
 });
 
-const LocalityItems = () => {
+const LocalityItems = (props) => {
   const classes = useStyles();
 
   return (
-    <Grid container className={classes.root} spacing={2}>
+    <Grid container className={classes.root} spacing={2} {...props}>
       {viewType.map((value, index) => {
         return (
           <Grid item md={4} sm={6} xs={12} key={index}>

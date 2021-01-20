@@ -40,7 +40,7 @@ const ViewTypeHeader = () => {
           <SetLocation shadowBorder />
         </Grid>
         <Grid item lg={2} justify="flex-end" container spacing={4}>
-          <Grid item onClick={logout}>
+          <Grid item onClick={logout} data-testid="logoutLink">
             <Typography mode="link" variant="h6">
               Logout
             </Typography>

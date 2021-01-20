@@ -17,7 +17,7 @@ const useStyles = makeStyles({
   },
 });
 
-const CollectionItems = () => {
+const CollectionItems = (props) => {
   const classes = useStyles();
 
   const photoCollection = [
@@ -30,7 +30,7 @@ const CollectionItems = () => {
   ];
 
   return (
-    <Grid container className={classes.root} spacing={4}>
+    <Grid container className={classes.root} spacing={4} {...props}>
       {viewType.map((value, index) => {
         return (
           <Grid item md={3} sm={6} xs={12} key={index}>

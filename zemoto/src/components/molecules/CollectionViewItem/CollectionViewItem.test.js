@@ -41,3 +41,14 @@ it("renders CollectionViewItem correctly", () => {
   expect(getByTestId("special")).toHaveTextContent(args.special);
   expect(getByTestId("place")).toHaveTextContent(args.placesCount+ " Places");
 });
+
+it("renders CollectionViewItem correctly when mode='small'", () => {
+  const args = {
+    special: "What's Special",
+    placesCount: 12,
+    foodImg: collection1,
+  };
+  const { getByTestId } = render(<CollectionViewItem mode="small" {...args}/>);
+  expect(getByTestId("special")).toHaveTextContent(args.special);
+  expect(getByTestId("place")).toHaveTextContent(args.placesCount+ " Places");
+});

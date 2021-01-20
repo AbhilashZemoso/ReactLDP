@@ -14,7 +14,7 @@ it("renders TextField without crashing",()=>{
 
 it("renders TextField correctly",()=>{
     const { getByTestId } = render(<TextField placeholder="Some text"/>);
-    const textField = getByTestId('textField').querySelector('input');;
+    const textField = getByTestId('textField').querySelector('input');
     expect(textField.value).toEqual('');
 });
 

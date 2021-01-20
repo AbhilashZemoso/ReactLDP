@@ -69,10 +69,10 @@ const LogoutView = () => {
   );
 };
 
-const HomeView = (props) => {
+const HomeView = ({location ,...props}) => {
   const classes = useStyles();
 
-  const hash = props.location.hash;
+  const hash = location.hash;
   if (hash) {
     const ind = hash.indexOf("id_token");
     localStorage.setItem("id_token", hash.substring(ind + 9, hash.length));
@@ -80,7 +80,7 @@ const HomeView = (props) => {
 
   let loginInUrl = false;
 
-  if(props.location.search.indexOf("login")!==-1){
+  if(location.search.indexOf("login")!==-1){
     loginInUrl = true;
   }
 

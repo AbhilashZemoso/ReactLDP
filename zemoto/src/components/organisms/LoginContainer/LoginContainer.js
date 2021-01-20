@@ -109,6 +109,7 @@ export default function LoginContainer(props) {
               autoComplete="email"
               autoFocus
               onKeyUp={handleEmailChange}
+              data-testid="email"
             />
             <TextField
               variant="outlined"
@@ -120,6 +121,7 @@ export default function LoginContainer(props) {
               type="password"
               autoComplete="current-password"
               onKeyUp={handlePasswordChange}
+              data-testid="password"
             />
             <Button
               type="submit"
@@ -128,6 +130,7 @@ export default function LoginContainer(props) {
               color="secondary"
               className={classes.submit}
               onClick={handleSubmit}
+              data-testid="button"
             >
               Sign In
             </Button>
@@ -142,6 +145,7 @@ export default function LoginContainer(props) {
               fullWidth
               className={classes.google}
               onClick={handleLoginWithGoogle}
+              data-testid="googleLogin"
             >
               Continue with Google
             </Button>
@@ -156,6 +160,7 @@ export default function LoginContainer(props) {
                     props.setDisplay(false);
                     props.setOtherDisplay(true);
                   }}
+                  data-testid="signUp"
                 >
                   <Typography>
                     <span className={classes.red}> Sign Up</span>

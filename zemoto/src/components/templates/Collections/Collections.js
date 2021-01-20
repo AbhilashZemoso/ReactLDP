@@ -19,11 +19,11 @@ const useStyles = makeStyles({
   }
 });
 
-const Collections = () => {
+const Collections = (props) => {
   const classes = useStyles();
 
   return (
-    <Grid container direction="column" className={classes.root}>
+    <Grid container direction="column" className={classes.root} {...props}>
       <Grid item>
         <Typography variant="h4">Collections</Typography>
       </Grid>

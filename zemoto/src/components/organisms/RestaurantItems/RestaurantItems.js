@@ -37,7 +37,7 @@ const RestaurantItems = (props) => {
   availableCuisine = [...availableCuisine];
 
   return (
-    <Grid container className={classes.root}>
+    <Grid container className={classes.root} {...props}>
       <Grid container item>
         <Grid item>
           <FormControl variant="outlined" className={classes.filterType}>

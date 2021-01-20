@@ -47,16 +47,16 @@ const viewTypeList = [
   },
 ];
 
-const ViewTypeHeadings = (props) => {
+const ViewTypeHeadings = ({active, ...props}) => {
   const classes = useStyles();
 
   let activeType = 0;
-  if (props.active) {
-    activeType = props.active;
+  if (active) {
+    activeType = active;
   }
 
   return (
-    <Grid container direction="column" className={classes.root}>
+    <Grid container direction="column" className={classes.root} {...props}>
       <Grid
         item
         direction="row"

@@ -9,10 +9,10 @@ import collection5 from "./../../../resources/images/collection5.jpg";
 import { Link } from "react-router-dom";
 
 
-const MoreCollectionItems = () => {
+const MoreCollectionItems = (props) => {
 
   return (
-    <Grid container spacing={2}>
+    <Grid container spacing={2} {...props}>
       {moreCollections.map((value, index) => {
         return (
           <Grid item md={3} sm={6} xs={12} key={index}>

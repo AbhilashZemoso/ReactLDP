@@ -14,11 +14,11 @@ const useStyles = makeStyles({
   },
 });
 
-const ViewTypeItem = () => {
+const ViewTypeItem = (props) => {
   const classes = useStyles();
 
   return (
-    <Grid container alignItems="stretch" justify="space-evenly" className={classes.root} spacing={2}>
+    <Grid container alignItems="stretch" justify="space-evenly" className={classes.root} spacing={2} {...props}>
       <Grid item md={3} sm={6} xs={12}>
         <Link to="/viewType/delivery" style={{ textDecoration: 'none' }}>
           <HeaderViewItem foodImg={foodImg1}>Order Food Online</HeaderViewItem>

@@ -9,13 +9,13 @@ const useStyles = makeStyles({
     }
 });
 
-const MainCollection = (props) => {
+const MainCollection = ({foodImg, ...props}) => {
   const classes = useStyles();
 
   return (
-    <Grid container justify="center" className={classes.root}>
+    <Grid container justify="center" className={classes.root} {...props}>
       <Grid item sm={12}>
-        <CollectionViewItem {...props} />
+        <CollectionViewItem  foodImg={foodImg}/>
       </Grid>
     </Grid>
   );

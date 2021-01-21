@@ -10,14 +10,15 @@ export default function useRestaurantsFilter() {
 
   const defaultFilter = {
     sort: "",
-    rating: 0,
-    cost: 0,
+    rating: "0",
+    cost: "0",
     cuisine: [],
   };
 
   const [filter, setFilter] = useState(defaultFilter);
 
   const applyFilter = (type, value) => {
+    console.log("apply filter called",type,value);
     const newFilter = filter;
     newFilter[type] = value;
     setFilter(newFilter);
@@ -52,14 +53,16 @@ export default function useRestaurantsFilter() {
           break;
       }
     }
-    if (filter["rating"] !== 0) {
+    if (filter["rating"] !== "0") {
+      const value = parseInt(filter["rating"]);
       newRestaurants = newRestaurants.filter(
-        (restaurant) => restaurant.rating >= filter["rating"]
+        (restaurant) => restaurant.rating >= value
       );
     }
-    if (filter["cost"] !== 0) {
+    if (filter["cost"] !== "0") {
+      const value = parseInt(filter["cost"]);
       newRestaurants = newRestaurants.filter(
-        (restaurant) => restaurant.cost >= filter["cost"]
+        (restaurant) => restaurant.cost >= value
       );
     }
     if (filter["cuisine"].length !== 0) {

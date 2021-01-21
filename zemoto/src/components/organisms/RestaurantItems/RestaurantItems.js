@@ -40,19 +40,24 @@ const RestaurantItems = (props) => {
     <Grid container className={classes.root} {...props}>
       <Grid container item>
         <Grid item>
-          <FormControl variant="outlined" className={classes.filterType}>
+          <FormControl
+            variant="outlined"
+            className={classes.filterType}
+            data-testid="sortButton"
+          >
             <InputLabel>sort</InputLabel>
             <Select
               onChange={(event) => {
                 applyFilter("sort", event.target.value);
               }}
               label="sort"
+              data-testid="sortBy"
             >
-              <MenuItem value={""}>None</MenuItem>
-              <MenuItem value={"rating"}>rating</MenuItem>
-              <MenuItem value={"time"}>time</MenuItem>
-              <MenuItem value={"cost asc"}>cost &darr;</MenuItem>
-              <MenuItem value={"cost dec"}>cost &uarr;</MenuItem>
+              <MenuItem value="">None</MenuItem>
+              <MenuItem value="rating">rating</MenuItem>
+              <MenuItem value="time">time</MenuItem>
+              <MenuItem value="cost asc">cost &darr;</MenuItem>
+              <MenuItem value="cost dec">cost &uarr;</MenuItem>
             </Select>
           </FormControl>
         </Grid>
@@ -64,12 +69,13 @@ const RestaurantItems = (props) => {
                 applyFilter("rating", event.target.value);
               }}
               label="rating"
+              data-testid="ratingFilter"
             >
-              <MenuItem value={0}>None</MenuItem>
-              <MenuItem value={1}>above 1</MenuItem>
-              <MenuItem value={2}>above 2</MenuItem>
-              <MenuItem value={3}>above 3</MenuItem>
-              <MenuItem value={4}>above 4</MenuItem>
+              <MenuItem value="0">None</MenuItem>
+              <MenuItem value="1">above 1</MenuItem>
+              <MenuItem value="2">above 2</MenuItem>
+              <MenuItem value="3">above 3</MenuItem>
+              <MenuItem value="4">above 4</MenuItem>
             </Select>
           </FormControl>
         </Grid>
@@ -81,22 +87,25 @@ const RestaurantItems = (props) => {
                 applyFilter("cost", event.target.value);
               }}
               label="cost"
+              data-testid="costFilter"
             >
-              <MenuItem value={0}>None</MenuItem>
-              <MenuItem value={100}>min 100</MenuItem>
-              <MenuItem value={200}>min 200</MenuItem>
-              <MenuItem value={400}>min 400</MenuItem>
-              <MenuItem value={600}>min 600</MenuItem>
-              <MenuItem value={1000}>min 1000</MenuItem>
+              <MenuItem value='0'>None</MenuItem>
+              <MenuItem value='100'>min 100</MenuItem>
+              <MenuItem value='200'>min 200</MenuItem>
+              <MenuItem value='400'>min 400</MenuItem>
+              <MenuItem value='600'>min 600</MenuItem>
+              <MenuItem value='1000'>min 1000</MenuItem>
             </Select>
           </FormControl>
         </Grid>
         <Grid item>
           <Autocomplete
             onChange={(event, value) => applyFilter("cuisine", value)}
+            data-testid="cuisine"
             multiple
             options={availableCuisine}
             disableCloseOnSelect
+            data-testid="cuisineFilter"
             renderOption={(option, { selected }) => (
               <React.Fragment>
                 <Checkbox style={{ marginRight: 8 }} checked={selected} />

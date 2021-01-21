@@ -12,6 +12,7 @@ exports[`renders RestaurantItems snapshot correctly 1`] = `
     >
       <div
         className="MuiFormControl-root makeStyles-filterType-3"
+        data-testid="sortButton"
       >
         <label
           className="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-outlined"
@@ -21,6 +22,7 @@ exports[`renders RestaurantItems snapshot correctly 1`] = `
         </label>
         <div
           className="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-formControl"
+          data-testid="sortBy"
           onClick={[Function]}
         >
           <div
@@ -88,6 +90,7 @@ exports[`renders RestaurantItems snapshot correctly 1`] = `
         </label>
         <div
           className="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-formControl"
+          data-testid="ratingFilter"
           onClick={[Function]}
         >
           <div
@@ -155,6 +158,7 @@ exports[`renders RestaurantItems snapshot correctly 1`] = `
         </label>
         <div
           className="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-formControl"
+          data-testid="costFilter"
           onClick={[Function]}
         >
           <div
@@ -215,6 +219,7 @@ exports[`renders RestaurantItems snapshot correctly 1`] = `
         aria-expanded={false}
         aria-owns={null}
         className="MuiAutocomplete-root MuiAutocomplete-hasClearIcon MuiAutocomplete-hasPopupIcon"
+        data-testid="cuisineFilter"
         onClick={[Function]}
         onKeyDown={[Function]}
         onMouseDown={[Function]}

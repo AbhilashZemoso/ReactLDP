@@ -9,7 +9,7 @@
     "@material-ui/lab": "^4.0.0-alpha.57",
     "@testing-library/jest-dom": "^5.11.4",
     "@testing-library/react": "^11.1.0",
-    "@testing-library/user-event": "^12.1.10",
+    "@testing-library/user-event": "^12.6.0",
     "auth0-js": "^9.14.0",
     "jwt-decode": "^3.1.2",
     "react": "^17.0.1",
@@ -52,7 +52,8 @@
     "@storybook/addon-links": "^6.1.11",
     "@storybook/node-logger": "^6.1.11",
     "@storybook/preset-create-react-app": "^3.1.5",
-    "@storybook/react": "^6.1.11"
+    "@storybook/react": "^6.1.11",
+    "@testing-library/dom": "^7.29.4"
   },
   "jest": {
     "collectCoverageFrom": [
@@ -64,7 +65,6 @@
       "!src/ScrollToTop.js",
       "!src/reportWebVitals.js",
       "!src/App.js"
-
     ]
   }
 }

@@ -57,7 +57,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function LoginContainer(props) {
+export default function LoginContainer({setDisplay, setOtherDisplay ,...props}) {
   const classes = useStyles();
 
   const [email, setEmail] = useState("");
@@ -84,7 +84,7 @@ export default function LoginContainer(props) {
   };
 
   return (
-    <div className={classes.popup}>
+    <div className={classes.popup} {...props}>
       <Grid container justify="center">
         <Grid container className={classes.container}>
           <Grid item container alignItems="baseline">
@@ -94,7 +94,8 @@ export default function LoginContainer(props) {
             <Grid item>
               <CloseIcon
                 fontSize="small"
-                onClick={() => props.setDisplay(false)}
+                onClick={() => setDisplay(false)}
+                data-testid="close"
               />
             </Grid>
           </Grid>
@@ -157,8 +158,8 @@ export default function LoginContainer(props) {
                 <div
                   className={classes.link}
                   onClick={() => {
-                    props.setDisplay(false);
-                    props.setOtherDisplay(true);
+                    setDisplay(false);
+                    setOtherDisplay(true);
                   }}
                   data-testid="signUp"
                 >

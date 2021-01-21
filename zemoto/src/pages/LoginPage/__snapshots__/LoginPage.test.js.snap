@@ -31,6 +31,7 @@ exports[`renders LoginPage snapshot correctly 1`] = `
             <svg
               aria-hidden={true}
               className="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall"
+              data-testid="close"
               focusable="false"
               onClick={[Function]}
               viewBox="0 0 24 24"

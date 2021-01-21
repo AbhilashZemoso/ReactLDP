@@ -58,7 +58,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const SignupContainer = function (props) {
+const SignupContainer = function ({setDisplay, setOtherDisplay ,...props}) {
   const classes = useStyles();
 
   const [email, setEmail] = useState("");
@@ -97,7 +97,7 @@ const SignupContainer = function (props) {
   */
 
   return (
-    <div className={classes.popup}>
+    <div className={classes.popup} {...props}>
       <Grid container justify="center">
           <Grid container className={classes.container}>
             <Grid item container alignItems="baseline">
@@ -107,7 +107,8 @@ const SignupContainer = function (props) {
               <Grid item>
                 <CloseIcon
                   fontSize="small"
-                  onClick={() => props.setDisplay(false)}
+                  onClick={() => setDisplay(false)}
+                  data-testid="close"
                 />
               </Grid>
             </Grid>
@@ -123,6 +124,7 @@ const SignupContainer = function (props) {
                 autoComplete="email"
                 autoFocus
                 onKeyUp={handleEmailChange}
+                data-testid="email"
               />
               <TextField
                 variant="outlined"
@@ -134,6 +136,7 @@ const SignupContainer = function (props) {
                 type="password"
                 autoComplete="current-password"
                 onKeyUp={handlePasswordChange}
+                data-testid="password"
               />
               <Button
                 type="submit"
@@ -142,6 +145,7 @@ const SignupContainer = function (props) {
                 color="primary"
                 className={classes.submit}
                 onClick={handleSubmit}
+                data-testid="button"
               >
                 Create Account
               </Button>
@@ -156,6 +160,7 @@ const SignupContainer = function (props) {
                 fullWidth
                 className={classes.google}
                 onClick={handleLoginWithGoogle}
+                data-testid="googleLogin"
               >
                 Continue with Google
               </Button>
@@ -167,9 +172,10 @@ const SignupContainer = function (props) {
                   <div
                     className={classes.link}
                     onClick={() => {
-                      props.setDisplay(false);
-                      props.setOtherDisplay(true);
+                      setDisplay(false);
+                      setOtherDisplay(true);
                     }}
+                    data-testid="login"
                   >
                     <Typography>
                       <span className={classes.red}> Login</span>

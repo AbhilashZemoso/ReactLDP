@@ -28,6 +28,7 @@ exports[`renders HomePage snapshot correctly 1`] = `
           </div>
           <div
             className="MuiGrid-root MuiGrid-item"
+            data-testid="loginButton"
             onClick={[Function]}
           >
             <h6
@@ -39,6 +40,7 @@ exports[`renders HomePage snapshot correctly 1`] = `
           </div>
           <div
             className="MuiGrid-root MuiGrid-item"
+            data-testid="signupButton"
             onClick={[Function]}
           >
             <h6

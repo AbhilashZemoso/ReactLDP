@@ -39,15 +39,14 @@ const useStyles = makeStyles({
 const SignupView = (setDisplayLogin,setDisplaySignup) => {
   return (
     <React.Fragment>
-      <Grid item onClick={()=>setDisplayLogin(true)}>
+      <Grid item onClick={()=>setDisplayLogin(true)} data-testid="loginButton">
         <Typography mode="link" variant="h6">
           Log in
         </Typography>
       </Grid>
 
-      <Grid item onClick={()=>setDisplaySignup(true)}>
+      <Grid item onClick={()=>setDisplaySignup(true)} data-testid="signupButton">
         <Typography mode="link" variant="h6">
-          
             Sign up
         </Typography>
       </Grid>
@@ -61,7 +60,7 @@ const logout = () => {
 
 const LogoutView = () => {
   return (
-    <Grid item onClick={logout}>
+    <Grid item onClick={logout} data-testid="logoutButton">
       <Typography mode="link" variant="h6">
         Logout
       </Typography>

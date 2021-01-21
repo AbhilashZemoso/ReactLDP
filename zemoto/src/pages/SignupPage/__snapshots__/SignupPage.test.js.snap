@@ -31,6 +31,7 @@ exports[`renders SignupPage snapshot correctly 1`] = `
             <svg
               aria-hidden={true}
               className="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall"
+              data-testid="close"
               focusable="false"
               onClick={[Function]}
               viewBox="0 0 24 24"
@@ -47,6 +48,7 @@ exports[`renders SignupPage snapshot correctly 1`] = `
         >
           <div
             className="MuiFormControl-root MuiTextField-root MuiFormControl-marginNormal MuiFormControl-fullWidth"
+            data-testid="email"
             onKeyUp={[Function]}
           >
             <label
@@ -97,6 +99,7 @@ exports[`renders SignupPage snapshot correctly 1`] = `
           </div>
           <div
             className="MuiFormControl-root MuiTextField-root MuiFormControl-marginNormal MuiFormControl-fullWidth"
+            data-testid="password"
             onKeyUp={[Function]}
           >
             <label
@@ -147,6 +150,7 @@ exports[`renders SignupPage snapshot correctly 1`] = `
           </div>
           <button
             className="MuiButtonBase-root MuiButton-root MuiButton-contained makeStyles-submit-3 MuiButton-containedPrimary MuiButton-fullWidth"
+            data-testid="button"
             disabled={false}
             onBlur={[Function]}
             onClick={[Function]}
@@ -184,6 +188,7 @@ exports[`renders SignupPage snapshot correctly 1`] = `
           </div>
           <button
             className="MuiButtonBase-root MuiButton-root MuiButton-text makeStyles-google-4 MuiButton-fullWidth"
+            data-testid="googleLogin"
             disabled={false}
             onBlur={[Function]}
             onClick={[Function]}
@@ -223,6 +228,7 @@ exports[`renders SignupPage snapshot correctly 1`] = `
             >
               <div
                 className="makeStyles-link-7"
+                data-testid="login"
                 onClick={[Function]}
               >
                 <p

@@ -13,9 +13,9 @@ const MainCollection = ({foodImg, ...props}) => {
   const classes = useStyles();
 
   return (
-    <Grid container justify="center" className={classes.root} {...props}>
+    <Grid container justify="center" className={classes.root}>
       <Grid item sm={12}>
-        <CollectionViewItem  foodImg={foodImg}/>
+        <CollectionViewItem  foodImg={foodImg} {...props}/>
       </Grid>
     </Grid>
   );
